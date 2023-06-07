@@ -1,0 +1,16 @@
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+@layer components {
+	.container {
+		@apply mx-5 md:mx-10 lg:mx-20 xl:max-w-7xl 2xl:max-w-[92rem] xl:mx-auto overflow-hidden;
+	}
+}
