@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
 			lang="en"
 			className="">
 			<body
-				className="w-full min-h-full bg-primary-bg dark:bg-dark-primary-bg"
+				className="w-screen min-h-screen bg-primary-bg dark:bg-dark-primary-bg"
 				suppressHydrationWarning={true}>
 				<div className="container relative">
 					<Navbar />
