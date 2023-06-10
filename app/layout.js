@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@components/Navbar';
 import Topbar from '@components/Topbar';
+import { ThemeContextProvider } from '@contexts/themeContext';
 import '@styles/globals.css';
 import { useState, useEffect } from 'react';
 
@@ -31,11 +32,13 @@ export default function RootLayout({ children }) {
 			<body
 				className="w-screen min-h-screen bg-primary-bg dark:bg-dark-primary-bg"
 				suppressHydrationWarning={true}>
-				<div className="container relative">
-					<Topbar />
-					<Navbar />
-					{children}
-				</div>
+				<ThemeContextProvider>
+					<div className="container relative">
+						<Topbar />
+						<Navbar />
+						{children}
+					</div>
+				</ThemeContextProvider>
 			</body>
 		</html>
 	);

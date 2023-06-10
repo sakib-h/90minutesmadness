@@ -1,10 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FaFacebookF, FaInstagram, FaMoon, FaSun } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
 const Topbar = () => {
-	console.log(localStorage.getItem('theme'));
+	
 	const [theme, setTheme] = useState(
 		localStorage.getItem('theme') || 'system'
 	);
