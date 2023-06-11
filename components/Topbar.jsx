@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaFacebookF, FaInstagram, FaMoon, FaSun } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
 const Topbar = ({ setTheme }) => {
 	const [selectedTheme, setSelectedTheme] = useState(
@@ -37,19 +37,19 @@ const Topbar = ({ setTheme }) => {
 					<FaInstagram className="topbarIcon" />
 				</Link>
 				<MdSunny
-					className={`themeIcon ${
+					className={`topbarIcon ${
 						selectedTheme === 'light' && 'text-secondary-color'
 					} `}
 					onClick={() => switchTheme('light')}
 				/>
 				<MdDarkMode
-					className={`themeIcon ${
+					className={`topbarIcon ${
 						selectedTheme === 'dark' && 'dark:text-secondary-color'
 					} `}
 					onClick={() => switchTheme('dark')}
 				/>
 				<MdMonitor
-					className={`themeIcon ${
+					className={`topbarIcon ${
 						selectedTheme === 'system' &&
 						'text-secondary-color dark:text-secondary-color'
 					} `}

@@ -2,7 +2,7 @@
 import Navbar from '@components/Navbar';
 import Topbar from '@components/Topbar';
 import '@styles/globals.css';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 
 export const metadata = {
 	title: '90 Minutes Madness',
