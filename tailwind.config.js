@@ -15,7 +15,7 @@ module.exports = {
 				'primary-bg': '#ffffff',
 				'secondary-bg': '#f9fafb',
 				'primary-text': '#20232e',
-				'secondary-text': '#f48840',
+				'secondary-color': '#f48840',
 				'paragraph-text': '#7a7a7a',
 				'span-text': '#aaaaaa',
 				'dark-primary-bg': '#121119',

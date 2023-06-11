@@ -11,6 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	const [theme, setTheme] = useState('');
+
 	useEffect(() => {
 		if (!('theme' in localStorage)) {
 			const sysTheme = window.matchMedia(
