@@ -3,16 +3,17 @@ import Link from 'next/link';
 import { useState, useContext } from 'react';
 import { FaFacebookF, FaInstagram, FaMoon, FaSun } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
-const Topbar = () => {
-	
-	const [theme, setTheme] = useState(
-		localStorage.getItem('theme') || 'system'
-	);
-	const switchTheme = (e) => {
-		setTheme(e);
-		localStorage.setItem('theme', e);
+const Topbar = ({ theme, setTheme }) => {
+	const switchTheme = (value) => {
+		if (value === 'system') {
+			localStorage.removeItem('theme');
+			setTheme('');
+		} else {
+			localStorage.setItem('theme', value);
+			setTheme(value);
+		}
 	};
-	console.log(theme);
+
 	return (
 		<div className="hidden md:flex justify-end py-3">
 			<div className="socialIcon flex items-center">

@@ -1,9 +1,8 @@
 'use client';
 import Navbar from '@components/Navbar';
 import Topbar from '@components/Topbar';
-import { ThemeContextProvider } from '@contexts/themeContext';
 import '@styles/globals.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 export const metadata = {
 	title: '90 Minutes Madness',
@@ -11,20 +10,23 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-	const [theme, setTheme] = useState();
+	const [theme, setTheme] = useState('');
 	useEffect(() => {
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			setTheme('dark');
+		if (!('theme' in localStorage)) {
+			const sysTheme = window.matchMedia(
+				'(prefers-color-scheme: dark)'
+			).matches;
+			if (!sysTheme) {
+				setTheme('light');
+			} else {
+				setTheme('dark');
+			}
 		} else {
-			setTheme('');
+			setTheme(localStorage.getItem('theme'));
+			console.log(theme);
 		}
 	}, [theme]);
 
-	console.log(theme);
 	return (
 		<html
 			lang="en"
@@ -32,13 +34,14 @@ export default function RootLayout({ children }) {
 			<body
 				className="w-screen min-h-screen bg-primary-bg dark:bg-dark-primary-bg"
 				suppressHydrationWarning={true}>
-				<ThemeContextProvider>
-					<div className="container relative">
-						<Topbar />
-						<Navbar />
-						{children}
-					</div>
-				</ThemeContextProvider>
+				<div className="container relative">
+					<Topbar
+						theme={theme}
+						setTheme={setTheme}
+					/>
+					<Navbar />
+					{children}
+				</div>
 			</body>
 		</html>
 	);
