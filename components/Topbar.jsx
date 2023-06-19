@@ -4,9 +4,16 @@ import { useState } from 'react';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
 const Topbar = ({ setTheme }) => {
+	let defaultTheme;
+	// checking if the page is completely loaded
+	if (typeof window !== 'undefined') {
+		// getting the theme from localStorage
+		defaultTheme = localStorage.getItem('theme');
+	}
 	const [selectedTheme, setSelectedTheme] = useState(
-		localStorage.getItem('theme') || 'system'
+		defaultTheme || 'system'
 	);
+	console.log(selectedTheme);
 	const switchTheme = (value) => {
 		if (value === 'system') {
 			localStorage.removeItem('theme');
