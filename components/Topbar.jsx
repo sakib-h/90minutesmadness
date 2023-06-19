@@ -5,9 +5,8 @@ import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
 const Topbar = ({ setTheme }) => {
 	const [selectedTheme, setSelectedTheme] = useState(
-		'theme' in localStorage ? localStorage.getItem('theme') : 'system'
+		localStorage.getItem('theme') || 'system'
 	);
-
 	const switchTheme = (value) => {
 		if (value === 'system') {
 			localStorage.removeItem('theme');
@@ -39,20 +38,20 @@ const Topbar = ({ setTheme }) => {
 				<MdSunny
 					className={`topbarIcon ${
 						selectedTheme === 'light' && 'text-secondary-color'
-					} `}
+					}`}
 					onClick={() => switchTheme('light')}
 				/>
 				<MdDarkMode
 					className={`topbarIcon ${
 						selectedTheme === 'dark' && 'dark:text-secondary-color'
-					} `}
+					}`}
 					onClick={() => switchTheme('dark')}
 				/>
 				<MdMonitor
 					className={`topbarIcon ${
 						selectedTheme === 'system' &&
 						'text-secondary-color dark:text-secondary-color'
-					} `}
+					}`}
 					onClick={() => switchTheme('system')}
 				/>
 			</div>
