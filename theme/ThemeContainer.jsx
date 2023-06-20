@@ -23,7 +23,7 @@ const ThemeContainer = ({ children }) => {
 			lang="en"
 			className={theme}>
 			<body
-				className="w-screen min-h-screen bg-primary-bg dark:bg-dark-primary-bg"
+				className="w-screen min-h-screen bg-primary-bg dark:bg-dark-primary-bg overflow-hidden"
 				suppressHydrationWarning={true}>
 				<div className="container relative">
 					<Topbar

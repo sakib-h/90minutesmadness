@@ -4,16 +4,10 @@ import { useState } from 'react';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
 const Topbar = ({ setTheme }) => {
-	let defaultTheme;
-	// checking if the page is completely loaded
-	if (typeof window !== 'undefined') {
-		// getting the theme from localStorage
-		defaultTheme = localStorage.getItem('theme');
-	}
 	const [selectedTheme, setSelectedTheme] = useState(
-		defaultTheme || 'system'
+		localStorage.getItem('theme') || 'system'
 	);
-	console.log(selectedTheme);
+
 	const switchTheme = (value) => {
 		if (value === 'system') {
 			localStorage.removeItem('theme');
@@ -25,7 +19,6 @@ const Topbar = ({ setTheme }) => {
 			setSelectedTheme(value);
 		}
 	};
-
 	return (
 		<div className="hidden md:flex justify-end py-3">
 			<div className="socialIcon flex items-center">
