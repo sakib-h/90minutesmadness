@@ -1,23 +1,22 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
-import { MdDarkMode, MdSunny, MdMonitor } from 'react-icons/md';
-const Topbar = ({ setTheme }) => {
-	const [selectedTheme, setSelectedTheme] = useState(
-		localStorage.getItem('theme') || 'system'
-	);
-
+import { MdDarkMode, MdSunny, MdMonitor, MdContrast } from 'react-icons/md';
+const Topbar = () => {
+	const { theme, setTheme, systemTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+	const [selectedTheme, setSelectedTheme] = useState(theme && theme);
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+	if (!mounted) {
+		return null;
+	}
 	const switchTheme = (value) => {
-		if (value === 'system') {
-			localStorage.removeItem('theme');
-			setTheme('');
-			setSelectedTheme('system');
-		} else {
-			localStorage.setItem('theme', value);
-			setTheme(value);
-			setSelectedTheme(value);
-		}
+		setTheme(value);
+		setSelectedTheme(value);
 	};
 	return (
 		<div className="hidden md:flex justify-end py-3">
