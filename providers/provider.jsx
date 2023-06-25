@@ -12,9 +12,6 @@ const Providers = ({ children }) => {
 	if (!loading) {
 		return null;
 	}
-
-
-
 	return (
 		<ThemeProvider
 			attribute="class"

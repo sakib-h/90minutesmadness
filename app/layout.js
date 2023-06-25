@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 const Navbar = dynamic(() => import('@components/Navbar'));
 const Topbar = dynamic(() => import('@components/Topbar'));
 import Providers from '@providers/provider';
-import Loading from './loading';
+import Loading from './news/loading';
 export const metadata = {
 	title: '90 MINUTES MADNESS',
 	description: 'Check daily News & Updates of your favorite sports',
@@ -18,9 +18,11 @@ export default function RootLayout({ children }) {
 				suppressHydrationWarning={true}>
 				<div className="container relative">
 					<Providers>
-						<Topbar />
-						<Navbar />
-						<Suspense fallback={<Loading />}>{children}</Suspense>
+						<Suspense fallback={<Loading />}>
+							<Topbar />
+							<Navbar />
+							{children}
+						</Suspense>
 					</Providers>
 				</div>
 			</body>
