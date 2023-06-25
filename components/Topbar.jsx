@@ -5,15 +5,8 @@ import { useTheme } from 'next-themes';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { MdDarkMode, MdSunny, MdMonitor, MdContrast } from 'react-icons/md';
 const Topbar = () => {
-	const { theme, setTheme, systemTheme } = useTheme();
-	const [mounted, setMounted] = useState(false);
+	const { theme, setTheme } = useTheme();
 	const [selectedTheme, setSelectedTheme] = useState(theme && theme);
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-	if (!mounted) {
-		return null;
-	}
 	const switchTheme = (value) => {
 		setTheme(value);
 		setSelectedTheme(value);

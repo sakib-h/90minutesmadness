@@ -1,8 +1,10 @@
-import LoadingScreen from '@components/LoadingScreen';
 import '@styles/globals.css';
-import Topbar from '@components/Topbar';
-import Navbar from '@components/Navbar';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+const Navbar = dynamic(() => import('@components/Navbar'));
+const Topbar = dynamic(() => import('@components/Topbar'));
 import Providers from '@providers/provider';
+import Loading from './loading';
 export const metadata = {
 	title: '90 MINUTES MADNESS',
 	description: 'Check daily News & Updates of your favorite sports',
@@ -18,7 +20,7 @@ export default function RootLayout({ children }) {
 					<Providers>
 						<Topbar />
 						<Navbar />
-						{children}
+						<Suspense fallback={<Loading />}>{children}</Suspense>
 					</Providers>
 				</div>
 			</body>

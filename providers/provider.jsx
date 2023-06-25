@@ -3,15 +3,18 @@ import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
 
 const Providers = ({ children }) => {
-	const [mounted, setMounted] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		setMounted(true);
+		setLoading(true);
 	}, []);
 
-	if (!mounted) {
-		return <>{children}</>;
+	if (!loading) {
+		return null;
 	}
+
+
+
 	return (
 		<ThemeProvider
 			attribute="class"
