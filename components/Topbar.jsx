@@ -12,7 +12,7 @@ const Topbar = () => {
 		setSelectedTheme(value);
 	};
 	return (
-		<div className="hidden md:flex justify-end py-3">
+		<div className="hidden  lg:flex justify-end py-3">
 			<div className="socialIcon flex items-center">
 				<Link
 					href="https://www.facebook.com/90minutesmadness"

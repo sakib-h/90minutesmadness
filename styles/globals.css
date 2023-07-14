@@ -16,4 +16,7 @@
 	.topbarIcon {
 		@apply mx-2 text-[20px] md:text-[28px] p-[5px] text-primary-text hover:bg-dark-primary-bg hover:text-primary-bg dark:text-dark-primary-text dark:hover:bg-primary-bg dark:hover:text-primary-text rounded-full cursor-pointer transition duration-[0.3s];
 	}
+	.menuIcon{
+		@apply text-[20px] md:text-[28px] text-dark-primary-text  dark:text-primary-text cursor-pointer transition duration-[0.3s]
+	}
 }
